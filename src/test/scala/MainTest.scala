@@ -2,6 +2,7 @@ package com.sovrn
 
 import org.apache.spark.sql.SparkSession
 import org.scalatest.FlatSpec
+import com.sovrn.Main.podSeq2DataFrame
 
 class MainTest extends FlatSpec {
   val spark = SparkSession.builder()
