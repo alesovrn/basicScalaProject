@@ -1,3 +1,5 @@
+package com.sovrn
+
 import org.apache.spark.sql.SparkSession
 import org.scalatest.FlatSpec
 
@@ -7,8 +9,11 @@ class MainTest extends FlatSpec {
     .master("local[2]")
     .getOrCreate()
 
-
   "The example" should "be true" in {
-    assert(1===1)
+    val df = Main.podSeq2DataFrame(spark, Seq("kdlne2", "dkrnel"))
+    val numRows = df.count()
+    assertResult(2){
+      numRows
+    }
   }
 }
