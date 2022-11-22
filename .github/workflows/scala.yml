@@ -18,6 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Compile core code
+        run: mvn compile
       - name: Compile tests
         run: mvn scala:testCompile
       - name: Run tests
