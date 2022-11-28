@@ -10,7 +10,10 @@ class MainTest extends FlatSpec {
     .master("local[2]")
     .getOrCreate()
 
-  val zones = spark.read.option("basepath", "src/test/resources/zones/").parquet("src/test/resources/zones/")
+  "The test data" should "be readable" in {
+    val zones = spark.read.option("basepath", "src/test/resources/zones/").parquet("src/test/resources/zones/")
+    assert(zones.count() > 0)
+  }
 
   "The example" should "be true" in {
     val df = Main.podSeq2DataFrame(spark, Seq("kdlne2", "dkrnel"))
