@@ -10,7 +10,7 @@ class MainTest extends FlatSpec {
     .master("local[2]")
     .getOrCreate()
 
-  val zones = spark.read.option("basepath", "./zones/").parquet("./zones/")
+  val zones = spark.read.option("basepath", "src/test/resources/zones/").parquet("src/test/resources/zones/")
 
   "The example" should "be true" in {
     val df = Main.podSeq2DataFrame(spark, Seq("kdlne2", "dkrnel"))
